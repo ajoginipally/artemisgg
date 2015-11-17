@@ -1,0 +1,72 @@
+var gulp = require('gulp'),
+    wiredep = require('wiredep').stream,
+    sass = require('gulp-ruby-sass'),
+    livereload = require('gulp-livereload'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    minifycss = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    imagemin = require('gulp-imagemin'),
+    rename = require('gulp-rename');
+
+gulp.task('styles', function() {
+  return sass('src/client/sass/main.scss', {style: 'expanded'})
+    .pipe(gulp.dest('dist/public/css/main.css'))
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gulp.dest('dist/public/css/main.css'))
+});
+
+gulp.task('scripts', function() {
+  return gulp.src('src/client/js/**/*.js')
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'))
+    .pipe(concat('scripts.js', {newLine: ';'}))
+    .pipe(gulp.dest('dist/public/js'))
+    .pipe(rename({ suffix: 'min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/public/js'))
+});
+
+gulp.task('copy-lib', function() {
+  return gulp.src('src/client/lib/**')
+    .pipe(gulp.dest('dist/public/lib'))
+});
+
+gulp.task('copy-assets', function() {
+  return gulp.src('src/client/lib/**')
+    .pipe(gulp.dest('dist/public/lib'))
+});
+
+gulp.task('copy-views', function() {
+  return gulp.src('src/client/assets/**')
+    .pipe(gulp.dest('dist/public/views'))
+});
+
+gulp.task('copy-server-src', function() {
+  return gulp.src('src/server.js')
+    .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('copy-server', function() {
+  return gulp.src('src/server/**')
+    .pipe(gulp.dest('dist/server'))
+});
+
+gulp.task('copy-config', function() {
+  return gulp.src('src/config/**')
+    .pipe(gulp.dest('dist/config'))
+});
+
+gulp.task('watch', function() {
+  gulp.watch('src/**/*', [default]);
+  livereload.listen();
+});
+
+gulp.task('clean', function() {
+  return del(['dist/public/**/*", "dist/server/**/*", "dist/config/**/*'])
+});
+
+gulp.task('default', ['clean'] function() {
+  gulp.start('scripts', 'copy-lib', 'copy-assets', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
+})
