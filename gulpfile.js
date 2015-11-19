@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
+    del = require('del'),
     wiredep = require('wiredep').stream,
+    jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
     livereload = require('gulp-livereload'),
     uglify = require('gulp-uglify'),
@@ -59,7 +61,7 @@ gulp.task('copy-config', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/**/*', [default]);
+  gulp.watch('src/**/*', ['default']);
   livereload.listen();
 });
 
@@ -67,6 +69,14 @@ gulp.task('clean', function() {
   return del(['dist/public/**/*", "dist/server/**/*", "dist/config/**/*'])
 });
 
-gulp.task('default', ['clean'] function() {
-  gulp.start('scripts', 'copy-lib', 'copy-assets', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
+gulp.task('bower', function() {
+  gulp.src('src/server/views/index.ejs')
+    .pipe(wiredep({
+      ignorePath: "../../client/"
+    }))
+    .pipe(gulp.dest('src/server/views'))
+})
+
+gulp.task('default', ['clean'], function() {
+  gulp.start('bower', 'scripts', 'bower', 'copy-lib', 'copy-assets', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
 })
