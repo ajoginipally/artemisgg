@@ -18,6 +18,7 @@ We are creating a League of Legends application called Artemis, which enables on
 4. mongoose: object modeling tool for node that allows schemas to be made to interact with mongo
 5. serve-static: serve static middleware
 6. wiredep: used in conjunction with gulp to automate concatination of bower dependencies to index
+
 ### DevDependencies
 1. gulp: task runner to automate simple tasks
 2. gulp del: used to clean project
@@ -30,6 +31,7 @@ We are creating a League of Legends application called Artemis, which enables on
 9. gulp-rename: allows renaming of file after concatination of minfied files ie. adding suffix .min.js
 10. gulp-ruby-sass: used in conjunction with stylesheet minification
 11. all minified files get appended to dist folder
+
 ### BowerDependencies
 1. angularJS: framework for client
 2. angular-animate: module to allow animation
