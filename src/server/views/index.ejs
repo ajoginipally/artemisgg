@@ -17,9 +17,10 @@
     <!-- stylesheets -->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="sass/main.css" rel="stylesheet" type="text/css">
+    <base href="/">
 
   </head>
-  <body ng-app="artemisgg">
-    <header></header>
-  </body>
+  <body ng-app="artemisgg" class="{{state}}">
+		<div ui-view ng-class="state"></div>
+	</body>
 </html>

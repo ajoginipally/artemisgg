@@ -16,48 +16,51 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/public/css/main.css'))
     .pipe(rename({ suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/public/css/main.css'))
+    .pipe(gulp.dest('dist/public/css/main.css'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('src/client/js/**/*.js')
+  return gulp.src(['gulpfile.js', 'src/config/**/*.js', 'src/client/js/**/*.js', 'src/server.js', 'src/server/**/*.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(concat('scripts.js', {newLine: ';'}))
+    .pipe(concat('scripts.js'))
     .pipe(gulp.dest('dist/public/js'))
     .pipe(rename({ suffix: 'min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/public/js'))
+    .on('error', function(e) {
+      console.log(e);
+    })
+    .pipe(gulp.dest('dist/public/js'));
 });
 
 gulp.task('copy-lib', function() {
   return gulp.src('src/client/lib/**')
-    .pipe(gulp.dest('dist/public/lib'))
+    .pipe(gulp.dest('dist/public/lib'));
 });
 
 gulp.task('copy-assets', function() {
   return gulp.src('src/client/lib/**')
-    .pipe(gulp.dest('dist/public/lib'))
+    .pipe(gulp.dest('dist/public/lib'));
 });
 
 gulp.task('copy-views', function() {
   return gulp.src('src/client/assets/**')
-    .pipe(gulp.dest('dist/public/views'))
+    .pipe(gulp.dest('dist/public/views'));
 });
 
 gulp.task('copy-server-src', function() {
   return gulp.src('src/server.js')
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('copy-server', function() {
   return gulp.src('src/server/**')
-    .pipe(gulp.dest('dist/server'))
+    .pipe(gulp.dest('dist/server'));
 });
 
 gulp.task('copy-config', function() {
   return gulp.src('src/config/**')
-    .pipe(gulp.dest('dist/config'))
+    .pipe(gulp.dest('dist/config'));
 });
 
 gulp.task('watch', function() {
@@ -66,7 +69,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('clean', function() {
-  return del(['dist/public/**/*", "dist/server/**/*", "dist/config/**/*'])
+  return del(['dist/public/**/*", "dist/server/**/*", "dist/config/**/*']);
 });
 
 gulp.task('bower', function() {
@@ -74,9 +77,9 @@ gulp.task('bower', function() {
     .pipe(wiredep({
       ignorePath: "../../client/"
     }))
-    .pipe(gulp.dest('src/server/views'))
-})
+    .pipe(gulp.dest('src/server/views'));
+});
 
 gulp.task('default', ['clean'], function() {
   gulp.start('bower', 'scripts', 'bower', 'copy-lib', 'copy-assets', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
-})
+});

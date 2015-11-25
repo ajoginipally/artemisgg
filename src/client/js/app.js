@@ -1,13 +1,18 @@
 var app = angular.module('artemisgg', [
-  "ui.router",
+	"ui.router",
+	"ngAnimate",
+	"ngTouch",
 ]);
 
-app.config(function('$stateProvider', '$urlRouteProvider') {
-  $urlRouteProvider.otherwise('/');
+// routing
+app.config(function($stateProvider, $urlRouterProvider)  {
 
+    $urlRouterProvider.otherwise('/');
 
-
-
-
-  
-})
+    $stateProvider
+        .state('primary', {
+            url: '/',
+            templateUrl: 'views/primary.html',
+            controller: 'mainController'
+        });
+});

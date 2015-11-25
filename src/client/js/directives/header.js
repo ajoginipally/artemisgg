@@ -6,7 +6,7 @@ app.directive("header", function() {
 
     },
     link: function($scope) {
-      
+
     }
-  }
-})
+  };
+});

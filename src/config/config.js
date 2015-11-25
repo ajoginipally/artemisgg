@@ -1,14 +1,24 @@
 var express = require('express');
-var json = require('express-json');
 var serveStatic = require('serve-static');
-var path = require('path');
+var mongoose = require('mongoose');
 
 module.exports = function (app) {
-  app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 3000);
+	app.set('views', __dirname + '/../server/views');
+	app.set('view engine', 'ejs');
 
-  app.set('views', path.join(__dirname, '/server/views'));
-  app.set('view engine', 'ejs');
+	app.use(serveStatic(__dirname + '/../public'));
 
-  app.use(serveStatic(__dirname + '/../public'));
+	if(!process.env.DB_USER || !process.env.DB_PASSWORD){
+		console.log("Error: Database login credentials are not defined");
+		process.exit();
+	}
 
-}
+	if ('development' == app.get('env')) {
+
+	}
+
+	if ('production' == app.get('env')) {
+
+	}
+};
