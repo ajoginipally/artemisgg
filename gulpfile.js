@@ -42,7 +42,7 @@ gulp.task('copy-assets', function() {
 });
 
 gulp.task('copy-views', function() {
-  return gulp.src('src/client/assets/**')
+  return gulp.src('src/client/views/**')
     .pipe(gulp.dest('dist/public/views'));
 });
 
