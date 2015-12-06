@@ -13,19 +13,17 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function() {
   return sass('src/client/sass/main.scss', {style: 'expanded'})
-    .pipe(gulp.dest('dist/public/css/main.css'))
+    .pipe(gulp.dest('dist/public/css'))
     .pipe(rename({ suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/public/css/main.css'));
+    .pipe(gulp.dest('dist/public/css'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['gulpfile.js', 'src/config/**/*.js', 'src/client/js/**/*.js', 'src/server.js', 'src/server/**/*.js'])
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
+  return gulp.src(['src/client/js/**/*.js'])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('dist/public/js'))
-    .pipe(rename({ suffix: 'min'}))
+    .pipe(rename({ suffix: '.min'}))
     .pipe(uglify())
     .on('error', function(e) {
       console.log(e);
