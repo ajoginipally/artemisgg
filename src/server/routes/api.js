@@ -15,6 +15,17 @@ module.exports = function (app) {
 		});
 	});
 
+  app.post('/api/user', function(req,res) {
+    var newUser = new User({
+      username: req.body.username,
+      password: req.body.password,
+      admin: false
+    });
+    newUser.save(function(err){
+      respond(res, err);
+    });
+  });
+
   // //get all users
   // app.get('/api/user', function(req, res) {
   //   User.find(function(err, users) {

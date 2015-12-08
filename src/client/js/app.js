@@ -25,7 +25,13 @@ app.config(function($stateProvider, $urlRouterProvider)  {
               return api.getUsers(true);
             }
           }
-        });
+        })
+        .state('login', {
+          url: '/login',
+          templateUrl: 'views/login.html',
+          controller: 'loginController',
+          resolve: {}
+        })
 });
 
 //restangular
