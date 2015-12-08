@@ -16,9 +16,9 @@ app.config(function($stateProvider, $urlRouterProvider)  {
             templateUrl: 'views/primary.html',
             controller: 'mainController'
         })
-        .state('users', {
-          url: '/users',
-          templateUrl: 'views/users.html',
+        .state('user', {
+          url: '/user',
+          templateUrl: 'views/user.html',
           controller: 'userController',
           resolve: {
             users: function(api){
