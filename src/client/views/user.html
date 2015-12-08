@@ -1,3 +1,6 @@
+<header></header>
 <section id="user">
-  <h2>{{users}}</h2>
+  <div ng-repeat="user in users">
+    <h2>{{user.username}} {{user.password}}</h2>
+  </div>
 </section>
