@@ -5,6 +5,9 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var json = require('express-json');
 var methodOverride = require('method-override');
+var passport = require('passport');
+var session = require('express-session');
+
 
 module.exports = function (app) {
 	app.set('port', process.env.PORT || 3000);
@@ -16,6 +19,13 @@ module.exports = function (app) {
 	app.use(bodyParser.json());
 	app.use(methodOverride());
 	app.use(serveStatic(__dirname + '/../public'));
+	app.use(session({
+		secret: 'octocat',
+		saveUninitialized: false,
+		resave: false
+	}));
+
+
 
 	mongoose.connect('mongodb://artemis:league@ds059284.mongolab.com:59284/artemisgg');
 };
