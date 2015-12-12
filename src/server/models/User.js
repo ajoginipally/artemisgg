@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
 	},
   admin: {
     type: Boolean,
-    defualt: false
+    default: false
   }
 });
 
