@@ -12,22 +12,18 @@
     </div>
 
     <div id="main-info" class="col-md-8">
-      <div ng-if="!details">
+      <div ng-if="rowList === false">
         Loading results...
       </div>
 
-      <!-- <div ng-if="details">
-        <ul ng-repeat="data in details.matches | filter:'JUNGLE'">
-          <li>{{data}}</li>
-        </ul> -->
-        <!-- <ul ng-repeat="data in details.matches">
-          <li>{{data}}</li>
-        </ul> -->
+      <div ng-if="rowList">
+        <h3>Last 10 Jungle Champions Played</h3>
+        <ul ng-repeat="data in rowList">
+          <li>{{data.name}}</li>
+        </ul>
+        <h3>Most Likely to Gank</h3>
+        {{lane}}
       </div>
-
-      <!-- <div ng-if="!details">
-        No results found.
-      </div> -->
     </div>
 
   </div>
