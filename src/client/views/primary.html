@@ -16,10 +16,11 @@
         Loading results...
       </div>
 
-      <!-- <div ng-if="details">
-        <ul ng-repeat="data in details.matches | filter:'JUNGLE'">
-          <li>{{data}}</li>
-        </ul> -->
+      <div ng-if="details">
+        <ul>
+          <li ng-repeat="data in details | filter:'JUNGLE'">{{data.champion}}</li>
+        </ul>
+        <div>{{related}}</div>
         <!-- <ul ng-repeat="data in details.matches">
           <li>{{data}}</li>
         </ul> -->

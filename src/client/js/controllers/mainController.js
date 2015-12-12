@@ -23,25 +23,22 @@ app.controller("mainController", function($scope, $http){
       .success(function(response) {
         $http.get('https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/' + response[$scope.search].id + '?beginIndex=0&endIndex=10&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
           .success(function(response) {
-            $scope.details = response;
+            $scope.details = response.matches;
           });
       });
 
-      $http.get('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'  '?champData=image&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
-  .success(function(response) {
-    $scope.related = response;
-  });
-
-  $http.get('')
-    .success(function(response) {
-      $scope.related = response;
-    });
 
 
-    // $http.get('https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/19731445?beginIndex=0&endIndex=10&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
+
+    // $http.get('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'  '?champData=image&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
     //   .success(function(response) {
     //     $scope.related = response;
     //   });
+    //
+    //   $http.get('')
+    //     .success(function(response) {
+    //       $scope.related = response;
+    //     });
   }
 
   $scope.update = function(movie) {
