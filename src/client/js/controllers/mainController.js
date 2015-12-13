@@ -77,19 +77,18 @@ app.controller("mainController", function($scope, $http){
               console.log(jungle);
               console.log(mid);
 
-
-              // if (bot >= top && bot >= mid && bot >= jungle) {
-              //   $scope.lane = "BOT";
-              // }
-              // else if (top >= jungle && top >= mid && top >= bot) {
-              //   $scope.lane = "TOP";
-              // }
-              // else if (mid >= jungle && mid >= top && mid >= bot) {
-              //   $scope.lane = "MID";
-              // }
-              // else {
-              //   $scope.lane = "JUNGLE";
-              // }
+              if (bot >= top && bot >= mid && bot >= jungle) {
+                $scope.lane = "BOT";
+              }
+              else if (top >= jungle && top >= mid && top >= bot) {
+                $scope.lane = "TOP";
+              }
+              else if (mid >= jungle && mid >= top && mid >= bot) {
+                $scope.lane = "MID";
+              }
+              else {
+                $scope.lane = "JUNGLE";
+              }
             }
           );
         });
