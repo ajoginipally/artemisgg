@@ -36,19 +36,15 @@ gulp.task('copy-lib', function() {
     .pipe(gulp.dest('dist/public/lib'));
 });
 
-gulp.task('copy-assets', function() {
-  return gulp.src('src/client/lib/**')
-    .pipe(gulp.dest('dist/public/lib'));
-});
 
 gulp.task('copy-assets2', function() {
-  return gulp.src('src/client/lib/**')
-    .pipe(gulp.dest('dist/public/lib'));
+  return gulp.src('src/client/assets/**')
+    .pipe(gulp.dest('dist/public/assets'));
 });
 
 gulp.task('copy-views', function() {
-  return gulp.src('src/client/assets/**')
-    .pipe(gulp.dest('dist/public/assets'));
+  return gulp.src('src/client/views/**')
+    .pipe(gulp.dest('dist/public/views'));
 });
 
 gulp.task('copy-server-src', function() {
@@ -84,5 +80,5 @@ gulp.task('bower', function() {
 });
 
 gulp.task('default', ['clean'], function() {
-  gulp.start('bower', 'scripts', 'bower', 'copy-lib', 'copy-assets', 'copy-assets2', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
+  gulp.start('bower', 'scripts', 'bower', 'copy-lib', 'copy-assets2', 'copy-views', 'copy-server-src', 'copy-server', 'copy-config', 'styles');
 });
