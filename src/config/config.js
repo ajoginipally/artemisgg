@@ -7,7 +7,7 @@ var json = require('express-json');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var session = require('express-session');
-var passportLocalMongoose = require('passport-local-mongoose');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 module.exports = function (app) {
@@ -20,15 +20,22 @@ module.exports = function (app) {
 	app.use(bodyParser.json());
 	app.use(methodOverride());
 	app.use(serveStatic(__dirname + '/../public'));
-	app.use(passport.initialize());
 	app.use(session({
 		secret: 'octocat',
 		saveUninitialized: false,
 		resave: false
 	}));
+	app.use(passport.initialize());
+	app.use(passport.session());
 
+	//passport config
+	var Account = require('../server/models/User');
+	passport.use(new LocalStrategy(Account.authenticate()));
+	passport.serializeUser(Account.serializeUser());
+	passport.deserializeUser(Account.deserializeUser());
 
-
-
+	//mongoose
 	mongoose.connect('mongodb://artemis:league@ds059284.mongolab.com:59284/artemisgg');
+
+
 };

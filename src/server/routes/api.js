@@ -1,4 +1,6 @@
-var respond = require("../lib/respond");
+// var respond = require("../lib/respond");
+
+var passport = require('passport');
 
 var User = require("../models/User");
 
@@ -9,62 +11,52 @@ module.exports = function (app) {
     res.json("welcome to the artemisgg api!")
   });
 
-  app.get('/api/user', function(req,res){
-		User.find({}, function(err, docs){
-			return respond(res, err, docs);
-		});
-	});
+  //register user
+  app.post('/api/register', function(req, res) {
+    Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+      if (err) {
+        return res.send("error", 404);
+      }
 
-  app.post('/api/user', function(req,res) {
-    var newUser = new User({
-      username: req.body.username,
-      password: req.body.password,
-      admin: false
-    });
-    newUser.save(function(err){
-      respond(res, err);
+      passport.authenticate('local')(req, res, function () {
+        console.log("success");
+        res.redirect('/');
+      });
     });
   });
 
-  // //get all users
-  // app.get('/api/user', function(req, res) {
-  //   User.find(function(err, users) {
-  //     if (err)
-  //       res.send(err);
+  //login
+  app.post('/api/login', passport.authenticate('local'), function(req, res) {
+    res.redirect('/');
+    console.log('success')
+  });
+
+  app.get('/api/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+
+
+  // app.get('/api/user', function(req,res){
+	// 	User.find({}, function(err, docs){
+	// 		return respond(res, err, docs);
+	// 	});
+	// });
   //
-  //     res.json(users);
+  // app.post('/api/user', function(req,res) {
+  //   var newUser = new User({
+  //     username: req.body.username,
+  //     password: req.body.password,
+  //     admin: false
+  //   });
+  //   newUser.save(function(err){
+  //     respond(res, err);
   //   });
   // });
-  //
-  // //create new user
-  // app.post('/api/user', function(req, res) {
-  //   var user = new User(); //new user model
-  //   user.username = req.body.username;
-  //   user.password = req.body.password;
-  //   user.admin = req.body.admin;
-  //
-  //   user.save(function(err) {
-  //     if(err)
-  //       res.send(err);
-  //     res.json({message: 'User created!'});
-  //   });
-  // })
-  //
-  // //get user by id
-  // app.get('/api/users/:id', function(req, res) {
-  //   User.find({"_id": req.params.id}, function(err, user){
-  //     if (err)
-  //       res.send(err);
-  //     res.json(user);
-  //   });
-  // });
-  //
-  // //delete user by id
-  // app.delete('/api/users/:id', function(req, res) {
-  //   User.remove({_id: req.params.id}, function(err, user){
-  //     if(err)
-  //       res.send(err);
-  //     res.json({message: 'User deleted!'});
-  //   });
-  // });
+
+
+
+
+
 }
