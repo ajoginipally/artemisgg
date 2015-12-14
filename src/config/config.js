@@ -24,6 +24,7 @@ module.exports = function (app) {
 		saveUninitialized: false,
 		resave: false
 	}));
+	app.use(flash());
 
 
 
