@@ -38,6 +38,12 @@ app.config(function($stateProvider, $urlRouterProvider)  {
           controller: 'loginController',
           resolve: {}
         })
+        .state('about', {
+          url: '/about',
+          templateUrl: 'views/about.html',
+          controller: 'aboutController',
+          resolve: {}
+        })
 });
 
 //restangular

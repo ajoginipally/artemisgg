@@ -1,7 +1,6 @@
 // var respond = require("../lib/respond");
 
 var passport = require('passport');
-
 var User = require("../models/User");
 
 module.exports = function (app) {
@@ -19,16 +18,20 @@ module.exports = function (app) {
       }
 
       passport.authenticate('local')(req, res, function () {
-        console.log("success");
         res.redirect('/');
       });
     });
   });
 
   //login
-  app.post('/api/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/#/login', failureFlash: true}), function(req, res) {
-    // res.redirect('/');
+  app.post('/api/login', passport.authenticate('local'), function(req, res) {
+    var user = req.session.user;
+    res.redirect('/');
   });
+
+  app.get('/#/login', function(req, res) {
+    res.json({ user : req.user })
+  })
 
   app.get('/api/logout', function(req, res) {
     req.logout();
