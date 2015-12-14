@@ -7,6 +7,7 @@ var json = require('express-json');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var session = require('express-session');
+var passportLocalMongoose = require('passport-local-mongoose');
 
 
 module.exports = function (app) {
@@ -19,11 +20,13 @@ module.exports = function (app) {
 	app.use(bodyParser.json());
 	app.use(methodOverride());
 	app.use(serveStatic(__dirname + '/../public'));
+	app.use(passport.initialize());
 	app.use(session({
 		secret: 'octocat',
 		saveUninitialized: false,
 		resave: false
 	}));
+
 
 
 
