@@ -72,24 +72,23 @@ app.controller("mainController", function($scope, $http){
                   bot++;
                 }
               }
-              
-              var topChance = 'top ' + top/(top+mid+bot)*100;
-              var midChance = 'mid ' + mid/(top+mid+bot)*100;
-              var botChance = 'bot ' + bot/(top+mid+bot)*100;
-              $scope.lanes = [topChance, midChance, botChance];
+              console.log(top);
+              console.log(bot);
+              console.log(jungle);
+              console.log(mid);
 
 
               // if (bot >= top && bot >= mid && bot >= jungle) {
-              //   $scope.cheese = "BOT";
+              //   $scope.lane = "BOT";
               // }
               // else if (top >= jungle && top >= mid && top >= bot) {
-              //   $scope.cheese = "TOP";
+              //   $scope.lane = "TOP";
               // }
               // else if (mid >= jungle && mid >= top && mid >= bot) {
-              //   $scope.cheese = "MID";
+              //   $scope.lane = "MID";
               // }
               // else {
-              //   $scope.cheese = "JUNGLE";
+              //   $scope.lane = "JUNGLE";
               // }
             }
           );

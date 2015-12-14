@@ -17,16 +17,13 @@
       </div>
 
       <div ng-if="rowList">
-        <h3>Last Jungle Champions Played</h3>
+        <h3>Last 10 Jungle Champions Played</h3>
         <ul ng-repeat="data in rowList">
           <li>{{data.name}}</li>
         </ul>
         <h3>Most Likely to Gank</h3>
-        <ul ng-repeat="lane in lanes">
-          <li>{{lane}}</li>
-        </ul>
+        {{lane}}
       </div>
-
     </div>
 
   </div>
