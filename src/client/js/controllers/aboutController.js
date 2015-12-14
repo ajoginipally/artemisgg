@@ -1,5 +1,2 @@
-app.controller('aboutController', function($scope, api) {
-
-
-
+app.controller('aboutController', function($scope, $cookies) {
 });

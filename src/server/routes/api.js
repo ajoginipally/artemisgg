@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.post('/api/register', function(req, res) {
     User.register(new User({ username : req.body.username }), req.body.password, function(err, account) {
       if (err) {
-        return res.send("error", 404);
+        res.json('message' : 'something went wrong!');
       }
 
       passport.authenticate('local')(req, res, function () {
@@ -25,15 +25,13 @@ module.exports = function (app) {
 
   //login
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
-    var user = req.session.user;
+    res.cookie('userName', req.user.username, {maxAge: 900000, httpOnly: false});
     res.redirect('/');
   });
 
-  app.get('/#/login', function(req, res) {
-    res.json({ user : req.user })
-  })
 
   app.get('/api/logout', function(req, res) {
+    res.clearCookie('userName');
     req.logout();
     res.redirect('/');
   });

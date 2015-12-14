@@ -2,7 +2,8 @@ var app = angular.module('artemisgg', [
   "ui.router",
   "ngAnimate",
   "ngTouch",
-  "restangular"
+  "restangular",
+  "ngCookies"
 ]);
 
 
