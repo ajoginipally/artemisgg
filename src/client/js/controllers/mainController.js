@@ -79,19 +79,6 @@ app.controller("mainController", function($scope, $http){
               var botChance = 'bot ' + Math.round(bot/(top+mid+bot)*100) + '%';
               $scope.lanes = [topChance, midChance, botChance];
 
-
-              // if (bot >= top && bot >= mid && bot >= jungle) {
-              //   $scope.cheese = "BOT";
-              // }
-              // else if (top >= jungle && top >= mid && top >= bot) {
-              //   $scope.cheese = "TOP";
-              // }
-              // else if (mid >= jungle && mid >= top && mid >= bot) {
-              //   $scope.cheese = "MID";
-              // }
-              // else {
-              //   $scope.cheese = "JUNGLE";
-              // }
             }
           );
         });
