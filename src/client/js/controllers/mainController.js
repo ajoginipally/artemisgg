@@ -72,7 +72,7 @@ app.controller("mainController", function($scope, $http){
                   bot++;
                 }
               }
-              
+
               var topChance = 'top ' + top/(top+mid+bot)*100;
               var midChance = 'mid ' + mid/(top+mid+bot)*100;
               var botChance = 'bot ' + bot/(top+mid+bot)*100;

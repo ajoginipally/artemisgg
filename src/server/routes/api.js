@@ -13,7 +13,7 @@ module.exports = function (app) {
 
   //register user
   app.post('/api/register', function(req, res) {
-    Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+    User.register(new User({ username : req.body.username }), req.body.password, function(err, account) {
       if (err) {
         return res.send("error", 404);
       }
@@ -26,37 +26,13 @@ module.exports = function (app) {
   });
 
   //login
-  app.post('/api/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
-    console.log('success')
+  app.post('/api/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/#/login', failureFlash: true}), function(req, res) {
+    // res.redirect('/');
   });
 
   app.get('/api/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   });
-
-
-
-  // app.get('/api/user', function(req,res){
-	// 	User.find({}, function(err, docs){
-	// 		return respond(res, err, docs);
-	// 	});
-	// });
-  //
-  // app.post('/api/user', function(req,res) {
-  //   var newUser = new User({
-  //     username: req.body.username,
-  //     password: req.body.password,
-  //     admin: false
-  //   });
-  //   newUser.save(function(err){
-  //     respond(res, err);
-  //   });
-  // });
-
-
-
-
 
 }

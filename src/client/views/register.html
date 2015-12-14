@@ -1,13 +1,14 @@
 <header></header>
-<section id="login">
+<section id="register">
   <div class='container'>
       <div class='row'>
         <div class='col-sm-4 col-sm-offset-4 text-center'>
-          <h1>Login Page</h1>
-          <form method='post' action='/api/login'>
+          <div ng-if='errors'>{{errors}}</div>
+          <h1>New user registration</h1>
+          <form method='post' action='/api/register'>
             <input type='text' placeholder='username' name='username' ng-model='user.username' class='form-control'>
             <input type='password' placeholder='Password' name='password' ng-model='user.password' class='form-control'>
-            <input type='submit' class='btn btn-primary' value='Login'>
+            <input type='submit' class='btn btn-primary' value='Register'>
           </form>
         </div>
       </div>
