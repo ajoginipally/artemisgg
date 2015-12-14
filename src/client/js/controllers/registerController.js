@@ -1,6 +1,2 @@
-app.controller('registerController', function($scope) {
-  
-
-
-
+app.controller('registerController', function($scope, $http) {
 });

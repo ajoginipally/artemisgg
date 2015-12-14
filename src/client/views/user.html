@@ -1,5 +1,13 @@
-<section id="user">
-  <div ng-repeat="user in users">
-    <h2>{{user.username}} {{user.password}}</h2>
+<header></header>
+<section id="user" ng-if="adminUser === 'true'">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Current Accounts in Database</h1>
+        <div ng-repeat="user in users">
+          <h3>{{user.username}}</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

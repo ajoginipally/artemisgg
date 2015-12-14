@@ -37,6 +37,7 @@ app.controller("mainController", function($scope, $http){
                 if(data[i].lane === "JUNGLE"){
                   $http.get('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/' + data[i].champion + '?champData=image&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
                     .success(function(response) {
+                      console.log(response)
                       $scope.rowList.push(response);
                     }
                   );
@@ -73,9 +74,9 @@ app.controller("mainController", function($scope, $http){
                 }
               }
 
-              var topChance = 'top ' + top/(top+mid+bot)*100;
-              var midChance = 'mid ' + mid/(top+mid+bot)*100;
-              var botChance = 'bot ' + bot/(top+mid+bot)*100;
+              var topChance = 'top ' + Math.round(top/(top+mid+bot)*100) + '%';
+              var midChance = 'mid ' + Math.round(mid/(top+mid+bot)*100) + '%';
+              var botChance = 'bot ' + Math.round(bot/(top+mid+bot)*100) + '%';
               $scope.lanes = [topChance, midChance, botChance];
 
 

@@ -1,8 +1,8 @@
 section	{
 	.content {
 		h1 {
-			margin-bottom:0;
-			color: red;
+			margin-bottom: 5%;
+			color: black;
 		}
 		h4 {
 			margin-top:0;
@@ -14,16 +14,21 @@ section	{
 	}
 }
 
-section#intro {
+.logo {
+  position:relative;
+  top:0px;
+  left:0px;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+}
+
+section#primary {
 	height: 100vh;
-	// min-height:500px;
+
 	width:100vw;
 	font-weight: 300;
-	font-size: 35px;
-	// z-index: 1;
-	// position:fixed;
-	// top: 0%;
-	// left: 0%;
+	font-size: 20px;
 
 	.wrap {
 		position:relative;
@@ -31,4 +36,13 @@ section#intro {
 		left:0%;
 		height:100%;
 	}
+
+	.pushmid {
+		margin-left: 25%;
+	}
+
+	ul {
+		list-style: none;
+	}
+
 }

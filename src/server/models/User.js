@@ -13,7 +13,7 @@ var User = new mongoose.Schema({
 	},
   admin: {
     type: Boolean,
-    defualt: false
+    default: true
   }
 });
 

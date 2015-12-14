@@ -3,7 +3,8 @@ var app = angular.module('artemisgg', [
   "ngAnimate",
   "ngTouch",
   "restangular",
-  "ngCookies"
+  "ngCookies",
+  "angular.filter"
 ]);
 
 
