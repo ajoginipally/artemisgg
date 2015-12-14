@@ -3,7 +3,6 @@
   <div class='container'>
       <div class='row'>
         <div class='col-sm-4 col-sm-offset-4 text-center'>
-          <div ng-if='errors'>{{errors}}</div>
           <h1>New user registration</h1>
           <form method='post' action='/api/register'>
             <input type='text' placeholder='username' name='username' ng-model='user.username' class='form-control'>

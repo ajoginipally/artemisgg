@@ -96,21 +96,6 @@ app.controller("mainController", function($scope, $http){
         });
 
 
-  //     $http.get('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/104?champData=image&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
-  // .success(function(response) {
-  //   $scope.related = response;
-  // });
-  //
-  // $http.get('')
-  //   .success(function(response) {
-  //     $scope.related = response;
-  //   });
-
-
-    // $http.get('https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/19731445?beginIndex=0&endIndex=10&api_key=a46f4df7-dc1e-4856-bb26-0cdd3c45b6a4')
-    //   .success(function(response) {
-    //     $scope.related = response;
-    //   });
   }
 
   $scope.select = function() {

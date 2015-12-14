@@ -14,7 +14,8 @@ module.exports = function (app) {
   app.post('/api/register', function(req, res) {
     User.register(new User({ username : req.body.username }), req.body.password, function(err, account) {
       if (err) {
-        res.json('message' : 'something went wrong!');
+        req.flash('info', 'something went wrong!')
+        res.redirect('/#/register')
       }
 
       passport.authenticate('local')(req, res, function () {

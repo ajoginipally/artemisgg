@@ -1,4 +1,5 @@
-app.controller('registerController', function($scope, api) {
+app.controller('registerController', function($scope) {
+  
 
 
 
