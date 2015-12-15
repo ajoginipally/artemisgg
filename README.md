@@ -4,6 +4,12 @@ ArtemisGG website
 ### Project Docs
 
 
+### Videos
+commercial: https://www.youtube.com/watch?v=sZxzpL5PWnc
+code: https://www.youtube.com/playlist?list=PLtzYGrQbwAerEibsEdWg-6EIKCQ34RbfY
+demonstration: https://www.youtube.co/playlist?list=PLtzYGrQbwAerI8OWpSMEl3x3MEeSSUaCk
+
+
 
 ### Overview
 We are creating a League of Legends application called Artemis, which enables one to extract data from previous matches about the enemy jungler. Allowing the user to find their most frequent jungle pathing and ganking routes. This will allow the user to watch out at specific times and prepare for high-danger time frames, avoiding a likely death. This application can also be used to look at professional junglers to see where and when they usually gank to help the new junglers if they are not sure where and when to gank.
