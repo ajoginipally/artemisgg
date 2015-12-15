@@ -9,6 +9,8 @@ We are creating a League of Legends application called Artemis, which enables on
 'gulp'
 ### Run server
 'npm start'
+### Misc
+'Make sure to have sass installed and any other Dependencies the console says are missing'
 
 ## Libraries
 ### Dependencies
@@ -18,6 +20,13 @@ We are creating a League of Legends application called Artemis, which enables on
 4. mongoose: object modeling tool for node that allows schemas to be made to interact with mongo
 5. serve-static: serve static middleware
 6. wiredep: used in conjunction with gulp to automate concatination of bower dependencies to index
+7. passport: used for authentication
+8. passport-local and passport-local-mongoose are used in conjunction with passport and mongoose
+9. express-session is used to maintain user sessions
+10. morgan is used to log statuses
+11. cookie parser is used by express to parse any cookies that come through
+12. body parser is used to parse json
+13. connect flash is used to display flash messages
 
 ### DevDependencies
 1. gulp: task runner to automate simple tasks
@@ -39,12 +48,19 @@ We are creating a League of Legends application called Artemis, which enables on
 4. angular-ui-router: flexible routing with nested views. allows for a 'state' based application
 5. bootstrap: css and js library will possibly use for grid system
 6. jquery: bootstrap dependency
+7. restangular is used to handle rest api's more efficiently
+8. angular cookies is used to capture cookies sent from the server
+9. angular filter is used to expose more filtering options for ng-repeat
 
 ### Views
-The user will have two primary views. First, the search view allows the user to input another user’s summoner name into the search to find information about that user. This leads to the second primary view where the user’s information about jungling is presented. Everything the user came to find will be shown in this view. There's an about page that will show information about the application. Currently there's a team view however this will be changed to show champions that are being used in the jungle recently. There's a log in view that will allow users to log in. Account utilization will be implemented later. Lastly, there is the admin view which will allow crud operations over users.
+1. Main View: Here the user can look up summoners and find information about their last jungle games and gank percentage
+2. Login View: Here a user can log in
+3. Register View: Here a user can register
+4. User View: Displays a list of users only allowed for admins
+5. About View: Here there's information about the application
 
 ### Statefulness
-Currently we are planning on what to do with user accounts who are not admins. However, admins are able to use crud operations on user accounts.
+Cookies are sent to enable statefulness. There is nothing a non admin user can do currently. However, if you are an admin you can go to the user page to see a list of users registered.
 
 ### Persistence
-Most of the data will be pulled from the league api. We have an api which currently only works with the user model. This api will allow basic crud operations on the users. These options include getting a single user, getting all users, creating a user, and deleting a user.
+Most of the data will be pulled from the league api. We have an api which currently only works with the user model. We have an api to enable logging in and registering. This api also allows retrieval of all the users in the database.
