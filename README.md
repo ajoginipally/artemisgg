@@ -6,7 +6,9 @@ ArtemisGG website
 
 ### Videos
 commercial: https://www.youtube.com/watch?v=sZxzpL5PWnc
+
 code: https://www.youtube.com/playlist?list=PLtzYGrQbwAerEibsEdWg-6EIKCQ34RbfY
+
 demonstration: https://www.youtube.co/playlist?list=PLtzYGrQbwAerI8OWpSMEl3x3MEeSSUaCk
 
 
