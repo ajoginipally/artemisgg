@@ -2,6 +2,7 @@
 ArtemisGG website 
 
 ### Project Docs
+In the repository
 
 
 ### Videos
