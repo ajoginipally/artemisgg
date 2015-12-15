@@ -2,7 +2,7 @@
 ArtemisGG website 
 
 ### Project Docs
-In the repository
+In the root of repository
 
 
 ### Videos
