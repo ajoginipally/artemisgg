@@ -24,6 +24,8 @@ We are creating a League of Legends application called Artemis, which enables on
 'npm start'
 ### Misc
 'Make sure to have Sass installed and any other Dependencies the console says are missing'
+### Credentials 
+'Admin: Username: dualice Password: dualice | Non-Admin: Username: foo Password: bar'
 
 ## Libraries
 ### Dependencies
